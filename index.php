@@ -1,5 +1,5 @@
 <?php
-    require_once './env.php';
+    //require_once './env.php';
     //import de l'autoloader des classes
     require_once './autoload.php';
     use App\Controller\HomeController;

@@ -8,17 +8,17 @@ class RolesController extends ManagerRoles{
         $code = 200;
         $message = "";
         if($json){
-            $data = json_decode($json);
+            $data = json_decode($json, true);
             $this->setNom($data["nom"]);
             $this->create();
-            $message = ["ok"=>"le role a été ajouté en BDD"];
+            $message = ['ok'=>'Le Role a ete ajoute en BDD' ];
         }
         else{
             $code = 400;
             $message = ["error"=>"le Json est invalide"];
         }
         http_response_code($code);
-        echo json_encode($message);
+        echo mb_convert_encoding(json_encode($message), "UTF-8", "UTF-8");
     }
 }
 ?>
