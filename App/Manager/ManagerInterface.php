@@ -1,7 +1,7 @@
 <?php
 namespace App\Manager;
 interface ManagerInterface{
-    public function add();
+    public function  create();
     public function find(int $id):object;
     public function findAll():array;
     public function update(int $id);
