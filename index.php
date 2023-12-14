@@ -1,8 +1,10 @@
 <?php
     require_once './env.php';
     //import de l'autoloader des classes
-    require_once './autoload2.php';
+    require_once './autoload.php';
     use App\Controller\HomeController;
+    use App\Controller\RolesController;
+    $rolesController = new RolesController();
     $homeController = new HomeController();
     //utilisation de session_start(pour gérer la connexion au serveur)
     session_start();
@@ -14,6 +16,9 @@
     switch ($path) {
         case '/openclassroom/':
             $homeController->getHome();
+            break;
+        case '/openclassroom/api/roles/add':
+            $rolesController->addRoles();
             break;
         default:
             $homeController->get404();
