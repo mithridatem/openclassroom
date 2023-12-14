@@ -12,6 +12,7 @@
     $url = parse_url($_SERVER['REQUEST_URI']);
     //test si l'url posséde une route sinon on renvoi à la racine
     $path = isset($url['path']) ? $url['path'] : '/';
+    $id = isset($url['path']) ? $url['path'] : '/';
     //routeur
     switch ($path) {
         case '/openclassroom/':
@@ -19,6 +20,9 @@
             break;
         case '/openclassroom/api/roles/add':
             $rolesController->addRoles();
+            break;
+        case '/openclassroom/api/roles/':
+            $rolesController->findRolesById();
             break;
         default:
             $homeController->get404();

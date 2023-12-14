@@ -20,5 +20,26 @@ class RolesController extends ManagerRoles{
         http_response_code($code);
         echo mb_convert_encoding(json_encode($message), "UTF-8", "UTF-8");
     }
+    public function findRolesById(){
+        header('Access-Control-Allow-Origin: *, Content-Type : application/json');
+        $code = 200;
+        $message = "";
+        if(isset($_GET["id"]) AND !empty($_GET["id"])){
+            $data = $this->find($_GET["id"]);
+            if($data){
+                $message = $data;
+            }
+            else{
+                $message = ['error'=>'Le role n\'existe pas en BDD'];
+                $code = 400;
+            }
+        }
+        else{
+            $message = ['error'=>'param id vide'];
+            $code = 400;
+        }
+        http_response_code($code);
+        echo mb_convert_encoding(json_encode($message), "UTF-8", "UTF-8");
+    }
 }
 ?>

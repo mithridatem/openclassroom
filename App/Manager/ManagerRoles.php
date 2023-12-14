@@ -15,13 +15,12 @@ class ManagerRoles extends Roles implements ManagerInterface{
             die($th->getCode());
         }
     }
-    public function find(int $id):Roles{
+    public function find(int $id):array{
         try {
             $req = $this->connexion()->prepare('SELECT id,nom FROM roles WHERE id = ?');
             $req->bindParam(1,$id,\PDO::PARAM_INT);
             $req->execute();
-            $req->setFetchMode(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, Roles::class);
-            return $req->fetch();
+            return $req->fetchAll(\PDO::FETCH_OBJ);
         } 
         catch (\Throwable $th) {
             die($th->getCode());
