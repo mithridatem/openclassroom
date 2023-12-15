@@ -4,8 +4,10 @@
     require_once './autoload.php';
     use App\Controller\HomeController;
     use App\Controller\RolesController;
+    use App\Controller\CategorieController;
     $rolesController = new RolesController();
     $homeController = new HomeController();
+    $categorieController = new CategorieController();
     //utilisation de session_start(pour gérer la connexion au serveur)
     session_start();
     //Analyse de l'URL avec parse_url() et retourne ses composants
@@ -29,6 +31,18 @@
             break;
         case '/openclassroom/api/roles/update':
             $rolesController->updateRoles();
+            break;
+        case '/openclassroom/api/categorie/add':
+            $categorieController->addCategorie();
+            break;
+        case '/openclassroom/api/categorie/':
+            $categorieController->findCategorieById();
+            break;
+        case '/openclassroom/api/categorie/all':
+            $categorieController->findAllCategorie();
+            break;
+        case '/openclassroom/api/categorie/update':
+            $categorieController->updateCategorie();
             break;
         default:
             $homeController->get404();

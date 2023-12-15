@@ -23,7 +23,7 @@ class ManagerRoles extends Roles implements ManagerInterface{
             return $req->fetchAll(\PDO::FETCH_OBJ);
         } 
         catch (\Throwable $th) {
-            die($th->getCode());
+            die($th->getMessage());
         }
     }
     public function findAll():array{
@@ -33,7 +33,7 @@ class ManagerRoles extends Roles implements ManagerInterface{
             return $req->fetchAll(\PDO::FETCH_ASSOC);
         } 
         catch (\Throwable $th) {
-            die($th->getCode());
+            die($th->getMessage());
         }
     }
     public function update(int $id):void{
