@@ -30,8 +30,7 @@ class ManagerRoles extends Roles implements ManagerInterface{
         try {
             $req = $this->connexion()->prepare('SELECT id,nom FROM roles');
             $req->execute();
-            $req->setFetchMode(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, Roles::class);
-            return $req->fetchAll();
+            return $req->fetchAll(\PDO::FETCH_ASSOC);
         } 
         catch (\Throwable $th) {
             die($th->getCode());

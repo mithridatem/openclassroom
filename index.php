@@ -24,6 +24,12 @@
         case '/openclassroom/api/roles/':
             $rolesController->findRolesById();
             break;
+        case '/openclassroom/api/roles/all':
+            $rolesController->findAllRoles();
+            break;
+        case '/openclassroom/api/roles/update':
+            $rolesController->updateRoles();
+            break;
         default:
             $homeController->get404();
             break;
