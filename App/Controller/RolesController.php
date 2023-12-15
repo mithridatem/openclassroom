@@ -45,7 +45,6 @@ class RolesController extends ManagerRoles{
         header('Access-Control-Allow-Origin: *, Content-Type : application/json');
         $code = 200;
         $message = "";
-        
         $data = $this->findAll();
         if($data){
             $message = $data;
@@ -54,7 +53,6 @@ class RolesController extends ManagerRoles{
             $message = ['error'=>'Le role n\'existe pas en BDD'];
             $code = 400;
         }
-        
         http_response_code($code);
         echo mb_convert_encoding(json_encode($message), "UTF-8", "UTF-8");
     }
