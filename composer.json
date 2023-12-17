@@ -1,0 +1,9 @@
+{
+    "name": "mithridatem/openclassroom",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+}

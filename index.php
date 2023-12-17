@@ -1,13 +1,13 @@
 <?php
     //require_once './env.php';
     //import de l'autoloader des classes
-    require_once './autoload.php';
+    require './vendor/autoload.php';
     use App\Controller\HomeController;
-    use App\Controller\RolesController;
+    /* use App\Controller\RolesController;
     use App\Controller\CategorieController;
-    $rolesController = new RolesController();
+    $rolesController = new RolesController(); */
     $homeController = new HomeController();
-    $categorieController = new CategorieController();
+    //$categorieController = new CategorieController();
     //utilisation de session_start(pour gérer la connexion au serveur)
     session_start();
     //Analyse de l'URL avec parse_url() et retourne ses composants
